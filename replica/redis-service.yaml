@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-replica
+  namespace: redis
+spec:
+  type: ClusterIP
+  ports:
+  - port: 7000
+    targetPort: 7000
+    name: client
+  - port: 17000
+    targetPort: 17000
+    name: gossip
+  selector:
+    app: redis-replica

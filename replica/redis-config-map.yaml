@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-replica
+  namespace: redis
+data:
+  redis.conf: |+
+    masterauth  Securep@55Here
+    replicaof redis-master.redis.svc.cluster.local 6379
